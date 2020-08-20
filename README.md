@@ -12,6 +12,13 @@ To run this app on your machine, simply clone this repo, start up your terminal 
 
 Note: This project uses a proxy to access the API.  The proxy itself has a rate limit of 200 calls per 60 min.  If you expect to do a lot of navigation/refreshing, I suggest commenting out two of the three `TopEvents` components found in `./src/pages/Home.tsx`
 
+Additionally, the catagory of TopEvents can be changed by modifying the `slug` property of the `TopEvents` component in `./scr/pages/Home.tsx`.  The url used is `https://api.smarkets.com/v3/popular/event_ids` so writting something like 
+
+```tsx
+<TopEvents lable="Motorsports" thing="/sport/motorsports" />
+```
+will give you the top results of MMA events.
+
 ## Source Code
 A brief rundown of the code found in the `src` directory
 

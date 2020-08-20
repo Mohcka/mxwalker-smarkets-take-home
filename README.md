@@ -1,44 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# mxwalker-smarkets-take-home
 
-## Available Scripts
+This is my submission for the take home assesment on creating a SPA using ReactJS that will
+interact with the Smarkets Trading API and present the data retrieved regarding Events to the client
 
-In the project directory, you can run:
+Technologies used in this front-end app are ReactJS, [React-Router](https://reactrouter.com/) to implement the 
+SPA functionality, [Material-UI](https://material-ui.com/) for utilizing responsive layout and fonts as well as [Styled-Components](https://styled-components.com/) for dynamic styling and themeing, [Typescript](https://www.typescriptlang.org/) for static typing and [axios](https://github.com/axios/axios) for making calls to the API.
 
-### `npm start`
+## Usage
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run this app on your machine, simply clone this repo, start up your terminal of choice and run `npm i` then `npm start`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Note: This project uses a proxy to access the API.  The proxy itself has a rate limit of 200 calls per 60 min.  If you expect to do a lot of navigation/refreshing, I suggest commenting out two of the three `TopEvents` components found in `./src/pages/Home.tsx`
 
-### `npm test`
+## Source Code
+A brief rundown of the code found in the `src` directory
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## components
+Collection of components that will be used in the pages
 
-### `npm run build`
+## components > events
+Components that are relevant to displaying the Events info
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## services
+Contains the `event-service` which is used to communicate to the API and handle
+the data retrieved to the client via Promises.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## models
+Contains type defintions of the data that is expected to be recieved by the API
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## context
+This holds the context which utilizes React's [Context API](https://reactjs.org/docs/context.html).  Currently, the context only holds the `event-service` which will be provided globally to the application.  This is allows me to apply dependency injection for my service so that I can use it wherever I need it or swap it out for another service or for a testable.  I could've easily just imported this logic like I would with `utils` but I wanted the chance to play with Context.
 
-### `npm run eject`
+## pages
+This holds the "pages" for the SPA.  The routing for the pages are configured via the `routes.tsx`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## theme
+Holds the main theme for the app as well as the global styling.  I took this from a boilerplate I use for other projects and just applied the appropriate styling.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## utils
+Misc. helpers and utils that contains convenient reusable code
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## routes.tsx
+The routes component that configures routing for all the pages found in the `pages` directory

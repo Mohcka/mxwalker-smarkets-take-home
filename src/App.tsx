@@ -22,7 +22,7 @@ const App: React.FC = () => {
           {/* Nav */}
           <div
             id="navbar"
-            style={{ borderBottom: "1px solid white", marginBottom: 10 }}
+            style={{ borderBottom: "1px solid #555", marginBottom: 10 }}
           >
             <Container>
               <Link to="/">
